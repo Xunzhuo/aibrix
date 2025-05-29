@@ -148,7 +148,7 @@ Below are routing strategies gateway supports
 .. code-block:: bash
 
     curl -v http://${ENDPOINT}/v1/chat/completions \
-    -H "routing-strategy: least-request" \
+    -H "x-aibrix-routing-strategy: least-request" \
     -H "Content-Type: application/json" \
     -d '{
         "model": "your-model-name",
@@ -198,9 +198,9 @@ Target Headers & General Error Headers
      - Description
    * - ``x-went-into-req-headers``
      - Indicates whether the request headers were processed correctly. Used for debugging header parsing issues.
-   * - ``target-pod``
+   * - ``x-aibrix-target-pod``
      - Specifies the destination pod selected by the routing algorithm. Useful for verifying routing decisions.
-   * - ``routing-strategy``
+   * - ``x-aibrix-routing-strategy``
      - Defines the routing strategy applied to this request. Ensures correct routing logic is followed.
 
 
@@ -281,7 +281,7 @@ Debugging Guidelines
 
 2. **Verify routing and model assignment**
 
-   - Ensure ``target-pod`` is correctly set to confirm the routing algorithm selected the right backend.
+   - Ensure ``x-aibrix-target-pod`` is correctly set to confirm the routing algorithm selected the right backend.
    - If ``x-error-no-model-in-request`` or ``x-error-no-model-backends`` appears, verify that the request includes a valid model and that the model has active backends.
    - If ``x-error-invalid-routing-strategy`` is present, confirm that the routing strategy used is supported by AIBrix.
 

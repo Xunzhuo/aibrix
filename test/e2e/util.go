@@ -105,7 +105,7 @@ func createOpenAIClientWithRoutingStrategy(baseURL, apiKey, routingStrategy stri
 			r.URL.Path = "/v1" + r.URL.Path
 			return mn(r)
 		}),
-		option.WithHeader("routing-strategy", routingStrategy),
+		option.WithHeader("x-aibrix-routing-strategy", routingStrategy),
 		option.WithMaxRetries(0),
 		respOpt,
 	)

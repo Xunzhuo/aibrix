@@ -82,7 +82,7 @@ func TestGetRoutingStrategy(t *testing.T) {
 		},
 		{
 			headers: []*configPb.HeaderValue{
-				{Key: "routing-strategy", RawValue: []byte("random")},
+				{Key: "x-aibrix-routing-strategy", RawValue: []byte("random")},
 			},
 			setEnvRoutingStrategy: false,
 			expectedStrategy:      "random",
@@ -99,7 +99,7 @@ func TestGetRoutingStrategy(t *testing.T) {
 		},
 		{
 			headers: []*configPb.HeaderValue{
-				{Key: "routing-strategy", RawValue: []byte("random")},
+				{Key: "x-aibrix-routing-strategy", RawValue: []byte("random")},
 			},
 			setEnvRoutingStrategy: true,
 			envRoutingStrategy:    "least-request",

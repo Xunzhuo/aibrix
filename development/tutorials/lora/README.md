@@ -89,7 +89,7 @@ curl -v http://localhost:8888/v1/chat/completions \
 curl -v http://localhost:8888/v1/chat/completions \
   -H "user: your-user-name" \
   -H "model: text2sql-lora-1" \
-  -H "routing-strategy: least-request" \
+  -H "x-aibrix-routing-strategy: least-request" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer any_key" \
   -d '{

@@ -34,7 +34,7 @@ async def send_request_streaming(client: openai.AsyncOpenAI,
             stream_options={"include_usage": True},
         )
         if hasattr(response_stream, 'response') and hasattr(response_stream.response, 'headers'):
-            target_pod = response_stream.response.headers.get('target-pod')
+            target_pod = response_stream.response.headers.get('x-aibrix-target-pod')
 
         text_chunks = []
         prompt_tokens = 0
@@ -162,7 +162,7 @@ async def send_request_batch(client: openai.AsyncOpenAI,
             max_tokens=2048
         )
         if hasattr(response, 'response') and hasattr(response.response, 'headers'):
-            target_pod = response.response.headers.get('target-pod')
+            target_pod = response.response.headers.get('x-aibrix-target-pod')
 
         response_time = asyncio.get_event_loop().time()
         latency = response_time - start_time
@@ -260,7 +260,7 @@ def main(args):
         )
         if args.routing_strategy is not None:
             client = client.with_options(
-                default_headers={"routing-strategy": args.routing_strategy}
+                default_headers={"x-aibrix-routing-strategy": args.routing_strategy}
             )
         if not args.streaming:
             logging.info("Using batch client")

@@ -46,7 +46,7 @@ func (s *Server) HandleRequestHeaders(ctx context.Context, requestID string, req
 
 	routingStrategy, routingStrategyEnabled := getRoutingStrategy(h.RequestHeaders.Headers.Headers)
 	if routingStrategyEnabled && !routing.Validate(routing.Algorithms(routingStrategy)) {
-		klog.ErrorS(nil, "incorrect routing strategy", "routing-strategy", routingStrategy)
+		klog.ErrorS(nil, "incorrect routing strategy", "x-aibrix-routing-strategy", routingStrategy)
 		return generateErrorResponse(
 			envoyTypePb.StatusCode_BadRequest,
 			[]*configPb.HeaderValueOption{{Header: &configPb.HeaderValue{

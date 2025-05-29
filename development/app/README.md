@@ -130,7 +130,7 @@ valid options: `random`, `least-latency`, `throughput`
 curl -v http://localhost:8000/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer test-key-1234567890" \
-  -H "routing-strategy: random" \
+  -H "x-aibrix-routing-strategy: random" \
   -d '{
      "model": "llama2-7b",
      "messages": [{"role": "user", "content": "Say this is a test!"}],

@@ -77,7 +77,7 @@ spec:
         match:
           prefix: "/v1"
           headers:
-          - name: "routing-strategy"
+          - name: "x-aibrix-routing-strategy"
             string_match:
               safe_regex:
                 regex: .*
@@ -98,7 +98,7 @@ spec:
         type: ORIGINAL_DST  
         original_dst_lb_config:
           use_http_header: true
-          http_header_name: "target-pod"
+          http_header_name: "x-aibrix-target-pod"
         connect_timeout: 6s
         lb_policy: CLUSTER_PROVIDED
         dns_lookup_family: V4_ONLY

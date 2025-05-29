@@ -87,7 +87,7 @@ class BenchmarkUser(HttpUser):
             }
 
             if self.routing_strategy:
-                headers["routing-strategy"] = self.routing_strategy
+                headers["x-aibrix-routing-strategy"] = self.routing_strategy
 
             response = self.client.post("/v1/chat/completions", json={
                 "model": self.model,

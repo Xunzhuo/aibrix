@@ -42,8 +42,8 @@ const (
 
 	// Request & Target Headers
 	HeaderWentIntoReqHeaders = "x-went-into-req-headers"
-	HeaderTargetPod          = "target-pod"
-	HeaderRoutingStrategy    = "routing-strategy"
+	HeaderTargetPod          = "x-aibrix-target-pod"
+	HeaderRoutingStrategy    = "x-aibrix-routing-strategy"
 
 	// RPM & TPM Update Errors
 	HeaderUpdateTPM        = "x-update-tpm"

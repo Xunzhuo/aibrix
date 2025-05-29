@@ -68,5 +68,5 @@ func getTargetPodFromChatCompletion(t *testing.T, message string) string {
 	require.NoError(t, err, "chat completitions failed %v", err)
 	assert.Equal(t, modelName, chatCompletion.Model)
 
-	return dst.Header.Get("target-pod")
+	return dst.Header.Get("x-aibrix-target-pod")
 }

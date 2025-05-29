@@ -151,7 +151,7 @@ ENDPOINT="localhost:8888"
 
 ```bash
 curl http://${ENDPOINT}/v1/chat/completions \
-    -H "Content-Type: application/json" -H "routing-strategy: least-request" \
+    -H "Content-Type: application/json" -H "x-aibrix-routing-strategy: least-request" \
     -d '{
         "model": "deepseek-r1-671b",
         "messages": [
@@ -160,7 +160,7 @@ curl http://${ENDPOINT}/v1/chat/completions \
         ]
     }'
 ```
-> Note: `-H "routing-strategy: least-request"` header can be removed if you like to use default kubernetes routing strategies
+> Note: `-H "x-aibrix-routing-strategy: least-request"` header can be removed if you like to use default kubernetes routing strategies
 
 You supposed to see some response like below
 

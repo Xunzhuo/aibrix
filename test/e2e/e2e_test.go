@@ -70,7 +70,7 @@ func TestBaseModelInferenceFailures(t *testing.T) {
 			name:            "Invalid Routing Strategy",
 			apiKey:          apiKey,
 			modelName:       modelName,
-			routingStrategy: "invalid-routing-strategy",
+			routingStrategy: "invalid-x-aibrix-routing-strategy",
 			expectErrCode:   400,
 		},
 	}
